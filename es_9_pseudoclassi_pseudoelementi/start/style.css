@@ -1,0 +1,38 @@
+
+blockquote {
+	background-color: rgba(0, 0, 0, .12);
+	padding: 8px;
+}
+
+blockquote::after{
+	content: "'";
+}
+
+blockquote::before{
+	content: "'";
+}
+
+
+a {
+	color: darkred;
+	text-decoration: none;
+}
+
+a:visited {
+	color: blue
+}
+
+
+a:hover {
+	color: rgb(112, 230, 105);
+}
+
+
+ #change_First_Letter::first-letter {
+	float: left;
+	color: darkred;
+	border: 3px ridge darkgoldenrod;
+	padding: 16px;
+	background-color: gold;
+	margin: 8px;
+}
