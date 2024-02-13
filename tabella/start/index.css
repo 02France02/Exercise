@@ -1,0 +1,44 @@
+table th, table {
+    border: 1px solid black;
+    color: #263238;
+}
+
+table {
+    width: 50%;
+}
+
+table caption {
+    color: #263238;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 30px;
+}
+
+thead {
+    background: #455a64;
+    
+}
+
+thead th {
+    color: white;
+    font-weight: 700;
+    
+}
+
+.lineOne {
+    background: #eceff1;
+}
+
+.lineTwo {
+    background: #b0bec5;
+}
+
+tfoot td {
+    font-weight: 800;
+    background: #78909c;
+    text-align: right;
+}
+
+td[style] {
+    text-align: right;
+}
