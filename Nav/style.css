@@ -1,0 +1,64 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+nav {
+    width: 100%;
+    height: 49px;
+    background: rgb(57, 57, 89);
+    padding: 10px;
+}
+
+nav span, nav a {
+    color: white;
+    
+}
+
+nav a {
+    font-size: 13px;
+    text-decoration: none;
+}
+
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav span, nav select, #disable {
+    margin-left: 10px;
+    padding: 5px;
+}
+
+nav select {
+    background: local;
+    border: none;
+    color: grey;
+
+}
+
+#disable {
+    background: local;
+    border: none;
+    color: rgba(131, 97, 97, 0.747);
+}
+
+.search {
+    float: right;
+}
+
+.search input {
+    border-radius: 4px;
+    padding: 5px;
+    
+}
+
+.search button {
+    background: none;
+    border: 1px solid green;
+    padding: 5px;
+    border-radius: 4px;
+    color: green;
+
+}
