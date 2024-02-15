@@ -1,0 +1,38 @@
+body {
+    background: rgb(201, 201, 245);
+}
+main {
+    position: relative;
+}
+.container {
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: white;
+    position: relative;
+    left: 30%;
+
+}
+
+.headerCard {
+    width: 100%;
+    margin: 5px;
+    
+}
+
+.headerCard img {
+    width: 97%;
+    border-radius: 10px;
+}
+.paragraph, .firstItem, .secondItem, .thirdItem  {
+    border-bottom: 1px solid black;
+    padding-left: 15px;
+}
+.footerCard {
+    padding: 15px;
+
+}
+footer {
+    position: relative;
+    left: 34%
+}
