@@ -1,0 +1,16 @@
+body {
+    display: flex;
+}
+
+#blue {
+    order: 1;
+}
+
+#orange {
+    order: 1;
+    flex: 1 ;
+}
+
+#green {
+    order: 1;
+}
