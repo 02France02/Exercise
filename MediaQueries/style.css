@@ -1,0 +1,97 @@
+/* ! Reset */
+* {
+  font-family: "Intro", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Start Code */
+
+
+
+.single-card {
+    /* Per vedere un gradiante */
+    background-image: linear-gradient( #ADADAD, #F1F1F1);
+    width: 260px;
+    height: 360px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px rgb(84, 82, 82);
+}
+
+figure {
+    overflow: hidden;
+    height: 180px;
+}
+
+figure img {
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    margin-bottom: 5px;
+}
+
+.name-date {
+    /* Questo elem, dice quanto spazio disponibile viene assegnato a quell elenento, sull'asse principale */
+    flex: 1;
+}
+
+.date {
+    font-size: 0.6em;
+    color: white;
+}
+
+.main-card {
+    padding: 10px;
+}
+
+.main-card p {
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+
+.main-card strong {
+    font-size: 1em;
+}
+
+#heart {
+    margin-left: 5px;
+}
+
+/* CONTENITORE CARD, RESPONSIVE */
+.cards-container {
+
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+
+
+
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(400px, auto);
+    }
+    
+}
+
+@media (max-width: 375px) {
+    .cards-container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: minmax(400px, auto);
+        
+    }
+}
+
