@@ -1,0 +1,47 @@
+Rendi la navbar creata nell'esercizio Nav della lezione Introduzione ai layouts responsiva: 
+-sotto i 768 pixel, la barra di navigazione viene sostituita da un menu hamburger senza funzionalità, che appare solamente. 
+-Prova a creare il menu hamburger sia con regole CSS che utilizzando un'icona.
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Francesco">
+    <meta name="description" content="This is a navBar">
+    <meta property="og:title" content="Card's Pages">
+    <meta property="og:description" content="This is a test for a navbar Responsive">
+    <meta property="og:image" content="URL dell'immagine">
+    <title>NavBar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="favicon" href="download.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-Block">
+                <h2><a href="#" class="logo">NavBar</a></h2>
+                <h3 class="pad">Home</h3>
+                <span class="pad"><a href="#">Link</a></span>
+                <select name="drop" class="pad">
+                    <option value="dropdown">Dropdown</option>
+                </select>
+                <button disabled class="pad">Disabled</button>
+            </div>
+            
+            <div class="search">
+                <input type="text" placeholder="Search">
+                <button>Search</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html> -->

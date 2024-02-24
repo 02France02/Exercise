@@ -1,0 +1,176 @@
+/* ! Reset */
+body,
+html {
+  font-family: "Intro", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0 0 0 0;
+  padding: 0;
+}
+ol,
+ul {
+  list-style-type: none;
+}
+img {
+  height: auto;
+}
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1rem;
+}
+h5 {
+  font-size: 0.8rem;
+}
+h6 {
+  font-size: 0.6rem;
+}
+a {
+  text-decoration: none;
+}
+
+
+
+
+/* Start Code */
+body {
+  background: #1F1F1F;
+}
+
+/* Stile Nav */
+nav {
+  background-color: #3e434b;
+  box-shadow: 1px 1px 1px 0 black;
+  padding: 10px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  
+  border-bottom: 1px solid white;
+} 
+
+/* Allineamento verticale di tutto */
+
+
+/* Distanziamento primo corpo dal secondo */
+.nav-dx {
+  flex: 1;
+}
+
+/* Allineamento con flex di tutte le ul, più spazio con gap */
+ul, .nav-sx {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Posizionamento fisso della NavBar con scroll-page */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+/* Colore titoli e Link */
+
+h3, h2 {
+  color: white;
+}
+
+.link {
+  color: gray;
+  font-size: 1.2em;
+}
+
+/* Style button and input */
+#dropdown, button[disabled] {
+  background: none;
+  border: none;
+  color: gray;
+  font-size: 1.2em;
+}
+
+/* Lo chiamo nuovamente per cambiar colore, ho risparmiato righe */
+button[disabled] {
+  color: rgba(128, 128, 128, 0.599);
+}
+
+#search-bar {
+  padding: 5px;
+  border-radius: 7px;
+  border: none;
+}
+
+.nav-sx button {
+  padding: 5px;
+  border-radius: 7px;
+  background: none;
+  border: 1px solid gray;
+  color: gray;
+}
+
+.nav-sx button:hover {
+  box-shadow: 0 0 10px 5px gray;
+  transition: 0.4s;
+}
+
+/* Media Query */
+@media (max-width: 735px) {
+  .nav-dx, .nav-sx {
+    display: none;
+  }
+
+   .hamburger-menu {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    gap: 5px;
+    
+  } 
+
+  .hamburger-menu:hover {
+    box-shadow: 0px 0px 10px 5px white ;
+    transition: 0.4s;
+    border-radius: 5px;
+    padding: 2px;
+  }
+  
+
+  .hamburger-menu div {
+    width: 30px;
+    height: 2px;
+    background-color: white;
+    
+  }
+
+  .hamburger-menu::before {
+    content: "Menù Hamburger";
+    color: white;
+    font-size: 1.3em;
+  }
+}
