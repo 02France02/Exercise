@@ -1,0 +1,55 @@
+<!-- Crea uno script che:
+
+-Al click del bottone inserisca la modalità dark -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .theme {
+        background-color: black;
+        color: white;
+      }
+      .button-theme {
+        background: yellowgreen;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        font-weight: bold;
+      }
+      .button-theme:hover {
+        box-shadow: 0 0 5px 5px lightblue;
+        transition: 0.5s;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <h1>Dark Mode</h1>
+    <div class="container-B">
+      <button class="btn">Dark Mode</button>
+    </div>
+    
+    <script>
+      //chiamo il button
+      const button = document.querySelector(".btn")
+      //chiamo il body
+      const body = document.querySelector("body")
+      //Al click del bottone, aggiungo o rimuovo una classe da body
+      button.addEventListener("click", () => {
+        body.classList.toggle("theme")        
+      })
+      //aggiungo un tema fisso al bottone
+      button.classList.add("button-theme")
+    </script>
+  </body>
+</html>
