@@ -1,18 +1,14 @@
 /* 
--Estrarre il h2 tag che mostra il counter variabile di stato in un nuovo componente chiamato CounterDisplay e 
- rendilo all'interno del Counter componente, passandolo il count stato variabile come prop.
--Aggiungi un pulsante di decremento e un pulsante di ripristino al Counter componente. Il pulsante di decremento
- dovrebbe decretare il contatore in base all'importo passato come prop e il pulsante di ripristino dovrebbe 
- ripristinare il contatore al valore iniziale passato come prop.
+-Costruire un Clock componente che rende l'ora corrente entro un h2 etichetta. 
+-Usa il useEffect aggancia per aggiornare l'ora ogni secondo.
  */
 
-import Counter from "./Counter";
+import { Clock } from "./Clock";
 
 function App() {
-
   return (
     <>
-      <Counter></Counter>
+      <Clock/>
     </>
   );
 }
