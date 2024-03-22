@@ -1,20 +1,16 @@
 /* 
-Modifica il Welcome componente in modo che il Age il componente viene reso 5 volte. Per ogni tempo utilizzare il rendering condizionale con una delle seguenti condizioni:
-- Il Age il componente viene reso solo se age prop è maggiore di 18.
-- Il Age il componente viene reso solo se age prop è presente.
-- Il Age il componente viene reso solo se age prop è maggiore di 18 e meno di 65.
-- Il Age il componente viene reso solo se age prop è maggiore di 18, meno di 65 e il name prop è uguale a "John". */
+-Creare un AlertClock componente di funzione che esegue il rendering di un pulsante. Quando si fa clic sul pulsante, 
+ è necessario visualizzare un avviso con l'ora corrente.
+-Render the AlertClock componente all'interno del App componente. Fai in modo che il gestore dell'evento venga ricevuto 
+ come supporto dal AlertClock componente, invece di essere implementato all'interno del componente stesso.
+ */
 
-import Welcome from "./Welcome";
+import { AlertClock } from "./AlertClock";
 function App() {
-  const age = 20;
+  const hour = new Date().getHours();
   return (
     <>
-      <Welcome 
-      name="Jhon"
-      age={age}
-      >
-      </Welcome>
+      <AlertClock hour={hour}></AlertClock>
     </>
   );
 }
