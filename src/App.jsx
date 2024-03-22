@@ -1,16 +1,18 @@
 /* 
--Creare un AlertClock componente di funzione che esegue il rendering di un pulsante. Quando si fa clic sul pulsante, 
- è necessario visualizzare un avviso con l'ora corrente.
--Render the AlertClock componente all'interno del App componente. Fai in modo che il gestore dell'evento venga ricevuto 
- come supporto dal AlertClock componente, invece di essere implementato all'interno del componente stesso.
+-Estrarre il h2 tag che mostra il counter variabile di stato in un nuovo componente chiamato CounterDisplay e 
+ rendilo all'interno del Counter componente, passandolo il count stato variabile come prop.
+-Aggiungi un pulsante di decremento e un pulsante di ripristino al Counter componente. Il pulsante di decremento
+ dovrebbe decretare il contatore in base all'importo passato come prop e il pulsante di ripristino dovrebbe 
+ ripristinare il contatore al valore iniziale passato come prop.
  */
 
-import { AlertClock } from "./AlertClock";
+import Counter from "./Counter";
+
 function App() {
-  const hour = new Date().getHours();
+
   return (
     <>
-      <AlertClock hour={hour}></AlertClock>
+      <Counter></Counter>
     </>
   );
 }
