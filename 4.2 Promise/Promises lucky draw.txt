@@ -1,0 +1,17 @@
+Il luckyDraw la funzione restituisce una promessa. Crea una catena di promesse in cui è richiesta la funzione per ciascuno dei giocatori: Joe, Caroline e Sabrina
+
+Esci dal valore risolto per ogni promessa e gestisci eventuali rifiuti di promessa nella catena.
+
+function luckyDraw(player) {
+  return new Promise((resolve, reject) => {
+    const win = Boolean(Math.round(Math.random()));
+
+    process.nextTick(() => {
+      if (win) {
+        resolve(`${player} won a prize in the draw!`);
+      } else {
+        reject(new Error(`${player} lost the draw.`));
+      }
+    });
+  });
+}
