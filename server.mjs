@@ -1,106 +1,62 @@
 import express from "express";
-import Joi from "joi";
-import pgPromise from "pg-promise";
-import dotenv from "dotenv";
-dotenv.config();
-
+import "express-async-errors";
+import morgan from "morgan";
+import joi from "joi"
 const app = express();
-const db = pgPromise()("postgres://postgres:123456789@localhost:5432/planets");
-const port = process.env.PORT || 3000;
-console.log(db);
+const port = 3000;
+
+app.use(morgan("dev"));
 app.use(express.json());
 
-const setupDb = async () => {
-  await db.none(`
-    DROP TABLE IF EXISTS planets;
+let planets = [
+  { id: 1, name: "Earth" },
+  { id: 2, name: "Mars" },
+  { id: 3, name: "Moon" },
+];
 
-    CREATE TABLE planets (
-      id SERIAL NOT NULL PRIMARY KEY,
-      name TEXT NOT NULL
-    );
-  `);
-
-  await db.none(`INSERT INTO planets (name) VALUES ('Earth')`);
-  await db.none(`INSERT INTO planets (name) VALUES ('Mars')`);
-};
-setupDb();
-
-app.get("/planets", async (req, res) => {
-  try {
-    const planets = await db.any(`SELECT * FROM planets`);
-    console.log(planets);
-    res.status(200).json(planets);
-  } catch (error) {
-    res.status(500).json({ error: 'Errore nel recuperare i pianeti' });
-  }
+// Invio alla pagina un array di oggetti
+app.get("/api/planets", (req, res) => {
+  res.status(200).json(planets);
 });
 
-app.get("/planets/:id", async (req, res) => {
+// Basandosi sull'id, invia il singolo oggetto alla pagina
+app.get("/api/planets/:id", (req, res) => {
   const { id } = req.params;
-  try {
-    const planet = await db.oneOrNone(
-      `SELECT * FROM planets WHERE id=$1`, 
-      [Number(id)]
-    );
-    if (planet) {
-      res.status(200).json(planet);
-    } else {
-      res.status(404).json({ error: 'Pianeta non trovato' });
-    }
-  } catch (error) {
-    res.status(500).json({ error: 'Errore nel recuperare il pianeta' });
-  }
+  const planet = planets.find((p) => p.id === Number(id));
+  res.status(200).json(planet);
 });
 
-const planetSchema = Joi.object({
+// Creazione di un nuovo pianeta
+app.post("/api/planets", (req, res) => {
+  const { id, name } = req.body;
+  const newPlanet = { id, name };
+  planets = [...planets, newPlanet];
+
+  res.status(200).json({ msg: "Il pianeta è stato creato" });
+});
+
+// convalida con joy
+const updatePlanetSchema = Joi.object({
   name: Joi.string().required(),
 });
 
-app.post("/planets", async (req, res) => {
-  const newPlanet = { name: req.body.name };
-  const { error } = planetSchema.validate(newPlanet);
-
-  if (error) {
-    return res.status(400).json({ error: 'Errore nei dati del pianeta' });
-  }
-
-  try {
-    await db.none(`INSERT INTO planets (name) VALUES ($1)`, [newPlanet.name]);
-    res.status(201).json({ msg: 'Il pianeta è stato creato' });
-  } catch (error) {
-    res.status(500).json({ error: 'Errore nella creazione del pianeta' });
-  }
-});
-
-app.put("/planets/:id", async (req, res) => {
+// Aggiornare un pianeta esistente
+app.put("/api/planets/:id", (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
-  
-  const { error } = planetSchema.validate({ name });
-
-  if (error) {
-    return res.status(400).json({ error: 'Errore nei dati del pianeta' });
-  }
-
-  try {
-    await db.none(`UPDATE planets SET name=$2 WHERE id=$1`, [Number(id), name]);
-    res.status(200).json({ msg: 'Il pianeta è stato aggiornato' });
-  } catch (error) {
-    res.status(500).json({ error: 'Errore nell\'aggiornamento del pianeta' });
-  }
+  planets = planets.map(plan => plan.id === Number(id) ? ({...plan, name}) : plan )  
+  res.status(200).json({ msg: "the planet was updated" });
 });
 
-app.delete("/planets/:id", async (req, res) => {
+// Cancellare un pianeta
+app.delete("/api/planets/:id", (req, res) => {
   const { id } = req.params;
-  
-  try {
-    await db.none(`DELETE FROM planets WHERE id=$1`, [Number(id)]);
-    res.status(200).json({ msg: 'Il pianeta è stato eliminato' });
-  } catch (error) {
-    res.status(500).json({ error: 'Errore nella cancellazione del pianeta' });
-  }
+  planets = planets.filter(plan => plan.id !== Number(id) )  
+  res.status(200).json({ msg: "the planet was deleted" });
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`);
+  console.log(`Example app listening on http://localhost:${port}`);
 });
+
+// Utilizzando Postman con un GET, possiamo ottenere i dati degli array creati
